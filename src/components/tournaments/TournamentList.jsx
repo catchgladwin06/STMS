@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { api } from '../../services/api';
 import {
   Trophy,
   Plus,
@@ -46,7 +47,7 @@ export default function TournamentList({ onNavigateToFixtures }) {
     return t.sport === selectedSport;
   });
 
-  const handleCreateTournament = (e) => {
+  const handleCreateTournament = async (e) => {
     e.preventDefault();
     if (!formData.name.trim()) return;
 
@@ -74,8 +75,9 @@ export default function TournamentList({ onNavigateToFixtures }) {
       }
     };
 
-    addTournament(newTournament);
-    setShowCreateModal(false);
+    await api.createTournament(newTournament);
+addTournament(newTournament);
+setShowCreateModal(false);
   };
 
   return (

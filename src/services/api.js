@@ -1,7 +1,7 @@
 // Frontend API Client connecting React to Express & MongoDB backend
 // Automatically falls back to LocalStorage if backend is offline or MongoDB is not running locally.
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://stms-backend-three.vercel.app/api';
 
 export const api = {
   // Tournaments
